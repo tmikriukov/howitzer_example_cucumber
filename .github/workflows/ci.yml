@@ -24,6 +24,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: 'recursive'
       - name: Set up Ruby ${{ matrix.ruby-version }}
         uses: ruby/setup-ruby@v1
         with:
