@@ -9,8 +9,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  MAILGUN_DOMAIN: 'mg.strongqa.com'
-  BASIC_SEXY_SETTINGS: 'mailgun_domain=${{ env.MAILGUN_DOMAIN }}'
+  BASIC_SEXY_SETTINGS: 'mailgun_domain=mg.strongqa.com'
 
 jobs:
   build:
