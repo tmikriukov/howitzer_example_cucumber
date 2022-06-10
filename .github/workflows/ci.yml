@@ -22,10 +22,15 @@ jobs:
           # - 3.0.4
           # - 3.1.2
 
+    env:
+      SEXY_SETTINGS: driver=headless_chrome,
+
     steps:
       - uses: actions/checkout@v3
         with:
           submodules: 'recursive'
+      - name: Install packages
+        run: sudo apt-get install -y jq google-chrome-stable
       - name: Set up Ruby ${{ matrix.ruby-version }}
         uses: ruby/setup-ruby@v1
         with:
@@ -33,7 +38,8 @@ jobs:
           bundler-cache: true
       - name: Install dependencies
         run: bundle install
+      - name:
       - name: Run rubocop
         run: bundle exec rake rubocop
-      - name: Run yard:validate
+      - name: Run tests
         run: bundle exec rake features:bvt features:p1 features:p2
