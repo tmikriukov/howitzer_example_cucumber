@@ -8,6 +8,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  MAILGUN_DOMAIN: 'mg.strongqa.com'
+
 jobs:
   build:
 
@@ -38,6 +41,7 @@ jobs:
       - name: Run rubocop
         run: bundle exec rake rubocop
       - name: Run tests
-        run: bundle exec rake features:bvt features:p1 features:p2
+        run: bundle exec rake features:bvt 
+        # features:p1 features:p2
         env:
-          SEXY_SETTINGS: driver=headless_chrome,
+          SEXY_SETTINGS: 'driver=headless_chrome,'
