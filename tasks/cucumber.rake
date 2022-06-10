@@ -8,8 +8,7 @@ opts = lambda do |task_name|
     '-x',
     "-f html -o ./#{Howitzer.log_dir}/#{Howitzer.driver}_#{task_name}_#{Howitzer.html_log}",
     "-f junit -o ./#{Howitzer.log_dir}",
-    '-f pretty',
-    '-c'
+    '-f pretty'
   ].join(' ').freeze
 end
 

@@ -8,9 +8,6 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-env:
-  BASIC_SEXY_SETTINGS: 'mailgun_domain=mg.strongqa.com'
-
 jobs:
   build:
 
@@ -44,4 +41,4 @@ jobs:
         run: bundle exec rake features:bvt 
         # features:p1 features:p2
         env:
-          SEXY_SETTINGS: 'driver=headless_chrome,${{ env.BASIC_SEXY_SETTINGS }},'
+          SEXY_SETTINGS: 'driver=headless_chrome,mailgun_domain=mg.strongqa.com,mailgun_key=${{ secrets.MAILGUN_PRIVATE_API_KEY }}'
