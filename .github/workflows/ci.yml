@@ -10,7 +10,7 @@ concurrency:
 
 env:
   MAILGUN_DOMAIN: 'mg.strongqa.com'
-  BASIC_SEXY_SETTINGS: 'mailgun_domain=$MAILGUN_DOMAIN'
+  BASIC_SEXY_SETTINGS: 'mailgun_domain=${{ env.MAILGUN_DOMAIN }}'
 
 jobs:
   build:
@@ -45,4 +45,4 @@ jobs:
         run: bundle exec rake features:bvt 
         # features:p1 features:p2
         env:
-          SEXY_SETTINGS: 'driver=headless_chrome,$BASIC_SEXY_SETTINGS,'
+          SEXY_SETTINGS: 'driver=headless_chrome,${{ env.BASIC_SEXY_SETTINGS }},'
