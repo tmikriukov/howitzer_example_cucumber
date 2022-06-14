@@ -29,14 +29,14 @@ jobs:
           - browserstack
           #- crossbrowsertesting
         include:
-          - driver: sauce
-            cloud: SAUCER
-          - driver: testingbot
-            cloud: TESTINGBOT
+          # - driver: sauce
+          #   cloud: SAUCER
+          # - driver: testingbot
+          #   cloud: TESTINGBOT
           - driver: browserstack
             cloud: BROWSERSTACK
-          - driver: crossbrowsertesting
-            cloud: CROSSBROWSERTESTING
+          # - driver: crossbrowsertesting
+          #   cloud: CROSSBROWSERTESTING
             
     steps:
       - uses: actions/checkout@v3
